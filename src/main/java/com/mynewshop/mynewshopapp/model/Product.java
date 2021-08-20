@@ -14,7 +14,7 @@ public class Product {
     @Column(name="product_name")
     private String productName;
     @Column(name="product_img")
-    private byte[] productImg;
+    private String productImg;
     @Column(name="product_desc")
     private String productDesc;
     @Column(name="is_active")
@@ -37,7 +37,7 @@ public class Product {
 
     public Product() {}
 
-    public Product(String productName, byte[] productImg, String productDesc, String isActive, String productSize, Integer productStock, String productColour, Integer productPrize, Integer categoryId) {
+    public Product(String productName, String productImg, String productDesc, String isActive, String productSize, Integer productStock, String productColour, Integer productPrize, Integer categoryId) {
         this.productName = productName;
         this.productImg = productImg;
         this.productDesc = productDesc;
@@ -74,11 +74,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public byte[] getProductImg() {
+    public String getProductImg() {
         return productImg;
     }
 
-    public void setProductImg(byte[] productImg) {
+    public void setProductImg(String productImg) {
         this.productImg = productImg;
     }
 
@@ -135,7 +135,7 @@ public class Product {
         return "Product{" +
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
-                ", productImg=" + Arrays.toString(productImg) +
+                ", productImg=" + productImg + '\'' +
                 ", productDesc='" + productDesc + '\'' +
                 ", isActive='" + isActive + '\'' +
                 ", productSize='" + productSize + '\'' +
