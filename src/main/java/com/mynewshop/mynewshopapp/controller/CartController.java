@@ -2,6 +2,7 @@ package com.mynewshop.mynewshopapp.controller;
 
 
 import com.mynewshop.mynewshopapp.model.Cart;
+import com.mynewshop.mynewshopapp.repository.CartRepository;
 import com.mynewshop.mynewshopapp.service.CartService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private CartRepository cartRepository;
 
     @GetMapping("list")
     public List<Cart> findAll()
@@ -40,4 +44,7 @@ public class CartController {
     {
         cartService.deleteById(theId);
     }
+
+    @PutMapping("update")
+    public void updateCart(@RequestBody Cart cart) { cartRepository.updateCart(cart.getQuantity(), cart.getUserId(), cart.getProductId());}
 }
