@@ -60,4 +60,9 @@ public class CartController {
     {
         return cartRepository.byuserid(userId);
     }
+
+    @DeleteMapping("remove")
+    public void removefromcart(@RequestBody Cart cart){
+        cartRepository.removefromcart(cart.getUserId(), cart.getProductId());
+    }
 }

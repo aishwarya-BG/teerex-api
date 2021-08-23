@@ -11,6 +11,8 @@ public class Orderlist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="order_id")
     private Integer orderId;
+    @Column(name="user_id")
+    private Integer userId;
     @Column(name="order_status")
     private String orderStatus;
     @Column(name="total_price")
@@ -27,17 +29,25 @@ public class Orderlist {
     private List<Orderline> Orderlines;
 
 
-    public Orderlist(String orderStatus, Integer totalPrice, Date createdDate, Date shippedDate, Date estimatedArrivaldate) {
+    public Orderlist(Integer userId, String orderStatus, Integer totalPrice, Date createdDate, Date shippedDate, Date estimatedArrivaldate, List<Orderline> orderlines) {
+        this.userId = userId;
         this.orderStatus = orderStatus;
         this.totalPrice = totalPrice;
         this.createdDate = createdDate;
         this.shippedDate = shippedDate;
         this.estimatedArrivaldate = estimatedArrivaldate;
+        Orderlines = orderlines;
     }
 
     public Orderlist() {}
 
+    public Integer getUserId() {
+        return userId;
+    }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public Integer getOrderId() {
         return orderId;
@@ -87,16 +97,17 @@ public class Orderlist {
         this.estimatedArrivaldate = estimated_arrivaldate;
     }
 
-
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orderlist{" +
                 "orderId=" + orderId +
+                ", userId=" + userId +
                 ", orderStatus='" + orderStatus + '\'' +
                 ", totalPrice=" + totalPrice +
                 ", createdDate=" + createdDate +
                 ", shippedDate=" + shippedDate +
                 ", estimatedArrivaldate=" + estimatedArrivaldate +
+                ", Orderlines=" + Orderlines +
                 '}';
     }
 }
