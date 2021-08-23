@@ -19,14 +19,17 @@ public class Cart {
     private Integer productPrice;
     @Column(name="Quantity")
     private Integer quantity;
+    @Column(name="product_Name")
+    private String productName;
 
     public Cart() {}
 
-    public Cart(Integer userId, Integer productId, Integer productPrice, Integer quantity) {
+    public Cart(Integer userId, Integer productId, Integer productPrice, Integer quantity, String productName) {
         this.userId = userId;
         this.productId = productId;
         this.productPrice = productPrice;
         this.quantity = quantity;
+        this.productName = productName;
     }
 
     public Integer getCartId() {
@@ -69,6 +72,14 @@ public class Cart {
         this.quantity = quantity;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
     @Override
     public String toString() {
         return "Cart{" +
@@ -77,6 +88,7 @@ public class Cart {
                 ", productId=" + productId +
                 ", productPrice=" + productPrice +
                 ", quantity=" + quantity +
+                ", productName='" + productName + '\'' +
                 '}';
     }
 }
