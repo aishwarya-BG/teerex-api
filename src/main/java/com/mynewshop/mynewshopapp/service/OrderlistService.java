@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface OrderlistService {
     List<Orderlist> findAll();
 
-    void save(Orderlist orderlist);
+    Orderlist save(Orderlist orderlist);
 
     Optional<Orderlist> findById(Integer theId);
 

@@ -1,6 +1,7 @@
 package com.mynewshop.mynewshopapp.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -21,21 +22,21 @@ public class Shipping {
     @Column(name="pincode")
     private String pincode;
     @Column(name="totalmt")
-    private Integer totalamt;
-    @Column(name="orderid")
-    private Integer orderid;
+    private Integer totalmt;
+    @Column(name="order_id")
+    private Integer orderId;
 
-    public Shipping(Integer userid, String address, String city, String state, String pincode, Integer totalamt, Integer orderid) {
+    public Shipping() {}
+
+    public Shipping(Integer userid, String address, String city, String state, String pincode, Integer totalmt, Integer orderId) {
         this.userid = userid;
         this.address = address;
         this.city = city;
         this.state = state;
         this.pincode = pincode;
-        this.totalamt = totalamt;
-        this.orderid = orderid;
+        this.totalmt = totalmt;
+        this.orderId = orderId;
     }
-
-    public Shipping() {}
 
     public Integer getShippingid() {
         return shippingid;
@@ -85,20 +86,20 @@ public class Shipping {
         this.pincode = pincode;
     }
 
-    public Integer getTotalamt() {
-        return totalamt;
+    public Integer getTotalmt() {
+        return totalmt;
     }
 
-    public void setTotalamt(Integer totalamt) {
-        this.totalamt = totalamt;
+    public void setTotalmt(Integer totalmt) {
+        this.totalmt = totalmt;
     }
 
-    public Integer getOrderid() {
-        return orderid;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
     @Override
@@ -110,8 +111,8 @@ public class Shipping {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", pincode='" + pincode + '\'' +
-                ", totalamt=" + totalamt +
-                ", orderid=" + orderid +
+                ", totalmt=" + totalmt +
+                ", orderId=" + orderId +
                 '}';
     }
 }

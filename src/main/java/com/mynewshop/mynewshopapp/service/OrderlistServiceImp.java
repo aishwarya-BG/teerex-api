@@ -22,8 +22,8 @@ public class OrderlistServiceImp implements OrderlistService{
     }
 
     @Override
-    public void save(Orderlist orderlist) {
-        orderlistRepository.save(orderlist);
+    public Orderlist save(Orderlist orderlist) {
+       return orderlistRepository.save(orderlist);
     }
 
     @Override

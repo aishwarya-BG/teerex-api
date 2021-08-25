@@ -28,6 +28,9 @@ public class Orderlist {
     @JoinColumn(name = "order_id")
     private List<Orderline> Orderlines;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "order_id")
+    private List<Shipping> Shippings;
 
     public Orderlist(Integer userId, String orderStatus, Integer totalPrice, Date createdDate, Date shippedDate, Date estimatedArrivaldate, List<Orderline> orderlines) {
         this.userId = userId;
@@ -95,6 +98,22 @@ public class Orderlist {
 
     public void setEstimatedArrivaldate(Date estimated_arrivaldate) {
         this.estimatedArrivaldate = estimated_arrivaldate;
+    }
+
+    public List<Orderline> getOrderlines() {
+        return Orderlines;
+    }
+
+    public void setOrderlines(List<Orderline> orderlines) {
+        Orderlines = orderlines;
+    }
+
+    public List<Shipping> getShippings() {
+        return Shippings;
+    }
+
+    public void setShippings(List<Shipping> shippings) {
+        Shippings = shippings;
     }
 
     @Override

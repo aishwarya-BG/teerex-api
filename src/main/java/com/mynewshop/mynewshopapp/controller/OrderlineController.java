@@ -2,6 +2,8 @@ package com.mynewshop.mynewshopapp.controller;
 
 import com.mynewshop.mynewshopapp.model.Orderline;
 
+import com.mynewshop.mynewshopapp.repository.OrderlineRepository;
+import com.mynewshop.mynewshopapp.repository.OrderlistRepository;
 import com.mynewshop.mynewshopapp.service.OrderlineService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class OrderlineController {
 
     @Autowired
     private OrderlineService orderlineService;
+
+    @Autowired
+    private OrderlineRepository orderlineRepository;
 
     @GetMapping("list")
     public List<Orderline> findAll()
@@ -40,5 +45,6 @@ public class OrderlineController {
     {
         orderlineService.deleteById(theId);
     }
+
 
 }

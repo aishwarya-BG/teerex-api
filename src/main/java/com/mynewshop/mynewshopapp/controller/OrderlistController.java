@@ -1,7 +1,10 @@
 package com.mynewshop.mynewshopapp.controller;
 
+import com.mynewshop.mynewshopapp.model.Cart;
 import com.mynewshop.mynewshopapp.model.Category;
+import com.mynewshop.mynewshopapp.model.Orderline;
 import com.mynewshop.mynewshopapp.model.Orderlist;
+import com.mynewshop.mynewshopapp.repository.OrderlistRepository;
 import com.mynewshop.mynewshopapp.service.OrderlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +20,9 @@ public class OrderlistController {
     @Autowired
     private OrderlistService orderlistService;
 
+    @Autowired
+    private OrderlistRepository orderlistRepository;
+
     @GetMapping("list")
     public List<Orderlist> findAll()
     {
@@ -24,8 +30,8 @@ public class OrderlistController {
     }
 
     @PostMapping("save")
-    public void save(@RequestBody Orderlist orderlist) {
-        orderlistService.save(orderlist);
+    public Orderlist save(@RequestBody Orderlist orderlist) {
+        return orderlistService.save(orderlist);
     }
 
     @GetMapping("order/{theId}")
@@ -40,5 +46,13 @@ public class OrderlistController {
         orderlistService.deleteById(theId);
     }
 
+    @GetMapping("byuser/{theId}")
+    public List<Orderlist> byuserid(@PathVariable Integer theId)
+    {
+        return orderlistRepository.byuserid(theId);
+    }
+
+    @PutMapping("update")
+    public void updateStatus(@RequestBody Orderlist orderlist) { orderlistRepository.updateStatus(orderlist.getOrderStatus(), orderlist.getOrderId());}
 
 }

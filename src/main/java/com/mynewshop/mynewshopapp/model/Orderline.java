@@ -16,22 +16,38 @@ public class Orderline {
     private String orderLineItemStatus;
     @Column(name = "price")
     private Integer price;
+    @Column(name = "order_id")
+    private Integer orderId;
     @Column(name = "quantity")
     private Integer quantity;
     @Column(name = "discountId")
     private Integer discountId;
     @Column(name = "reason_of_cancel")
     private String reasonOfCancel;
+    @Column(name = "product_id")
+    private Integer productId;
+
+
 
     public Orderline() {}
 
-    public Orderline(Integer lineId, String orderLineItemStatus, Integer price, Integer quantity, Integer discountId, String reasonOfCancel) {
+    public Orderline(Integer lineId, String orderLineItemStatus, Integer price, Integer orderId, Integer quantity, Integer discountId, String reasonOfCancel, Integer productId) {
         LineId = lineId;
         this.orderLineItemStatus = orderLineItemStatus;
         this.price = price;
+        this.orderId = orderId;
         this.quantity = quantity;
         this.discountId = discountId;
         this.reasonOfCancel = reasonOfCancel;
+        this.productId = productId;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public Integer getOrderLineItemId() {
@@ -90,16 +106,26 @@ public class Orderline {
         this.reasonOfCancel = reasonOfCancel;
     }
 
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
     @Override
     public String toString() {
-        return "OrderLineItem{" +
+        return "Orderline{" +
                 "orderLineItemId=" + orderLineItemId +
                 ", LineId=" + LineId +
                 ", orderLineItemStatus='" + orderLineItemStatus + '\'' +
                 ", price=" + price +
+                ", orderId=" + orderId +
                 ", quantity=" + quantity +
                 ", discountId=" + discountId +
                 ", reasonOfCancel='" + reasonOfCancel + '\'' +
+                ", productId=" + productId +
                 '}';
     }
 }
