@@ -33,7 +33,7 @@ public class Product {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "product_id")
-    private List<Orderline> Orderlines;
+    private List<Cart> carts;
 
     public Product() {}
 
@@ -128,6 +128,14 @@ public class Product {
 
     public void setProductPrize(Integer productPrize) {
         this.productPrize = productPrize;
+    }
+
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 
     @Override

@@ -37,8 +37,8 @@ public class UserController {
     }
 
     @PostMapping("save")
-    public void save(@RequestBody User user) {
-        userService.save(user);
+    public User save(@RequestBody User user) {
+        return userService.save(user);
     }
 
     @GetMapping("users/{theId}")

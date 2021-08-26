@@ -46,5 +46,10 @@ public class OrderlineController {
         orderlineService.deleteById(theId);
     }
 
+    @GetMapping("byorderid/{theId}")
+    public List<Orderline> byorderId(@PathVariable Integer theId)
+    {
+        return orderlineRepository.byorderId(theId);
+    }
 
 }

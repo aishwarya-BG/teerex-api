@@ -1,6 +1,7 @@
 package com.mynewshop.mynewshopapp.controller;
 
 
+import com.mynewshop.mynewshopapp.model.Cart;
 import com.mynewshop.mynewshopapp.model.Product;
 import com.mynewshop.mynewshopapp.repository.ProductRepository;
 import com.mynewshop.mynewshopapp.repository.UserRepository;
@@ -18,6 +19,9 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @GetMapping("list")
     public List<Product> findAll()
@@ -48,4 +52,8 @@ public class ProductController {
         productService.deleteById(theId);
     }
 
+    @PutMapping("update")
+    public void update(@RequestBody Product product) {
+        productService.save(product);
+    }
 }

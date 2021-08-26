@@ -1,9 +1,6 @@
 package com.mynewshop.mynewshopapp.controller;
 
-import com.mynewshop.mynewshopapp.model.Category;
-import com.mynewshop.mynewshopapp.model.Product;
-import com.mynewshop.mynewshopapp.model.Shipping;
-import com.mynewshop.mynewshopapp.model.User;
+import com.mynewshop.mynewshopapp.model.*;
 import com.mynewshop.mynewshopapp.repository.CategoryRepository;
 import com.mynewshop.mynewshopapp.repository.ShippingRepository;
 import com.mynewshop.mynewshopapp.service.CategoryService;
@@ -42,5 +39,11 @@ public class ShippingController {
     public void deleteById(@PathVariable Integer theId)
     {
         shippingRepository.deleteById(theId);
+    }
+
+    @GetMapping("byorderid/{theId}")
+    public List<Shipping> byorderId(@PathVariable Integer theId)
+    {
+        return shippingRepository.byorderId(theId);
     }
 }

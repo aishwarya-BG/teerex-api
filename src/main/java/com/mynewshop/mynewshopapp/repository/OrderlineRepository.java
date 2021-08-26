@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface OrderlineRepository extends JpaRepository<Orderline, Integer> {
-
+    @Query("select o from Orderline o where o.orderId=:theid")
+    List<Orderline> byorderId(@Param("theid") Integer orderId);
 
 }
