@@ -11,4 +11,7 @@ import java.util.List;
 public interface ShippingRepository extends JpaRepository<Shipping, Integer> {
     @Query("select s from Shipping s where s.orderId=:theid")
     List<Shipping> byorderId(@Param("theid") Integer orderId);
+
+    @Query("select s from Shipping s where s.userid=:theid")
+    List<Shipping> byuserId(@Param("theid") Integer userId);
 }

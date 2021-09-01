@@ -46,4 +46,10 @@ public class ShippingController {
     {
         return shippingRepository.byorderId(theId);
     }
+
+    @GetMapping("byuserid/{theId}")
+    public List<Shipping> byuserId(@PathVariable Integer theId)
+    {
+        return shippingRepository.byuserId(theId);
+    }
 }

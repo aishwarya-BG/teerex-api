@@ -12,7 +12,7 @@ public interface ProductService {
 
     public List<Product> bycategory(Integer categoryId);
 
-    void save(Product product);
+    Product save(Product product);
 
     Optional<Product> findById(Integer theId);
 

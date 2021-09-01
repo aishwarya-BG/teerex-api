@@ -30,8 +30,8 @@ public class ProductServiceImp implements ProductService{
     }
 
     @Override
-    public void save(Product product) {
-        productRepository.save(product);
+    public Product save(Product product) {
+        return productRepository.save(product);
     }
 
     @Override
